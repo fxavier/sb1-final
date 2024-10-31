@@ -1,0 +1,21 @@
+quarkus:
+  application:
+    name: ecommerce-api
+  
+  http:
+    port: 8080
+    cors:
+      ~: true
+      origins: "*"
+      methods: GET,POST,PUT,DELETE,OPTIONS
+      headers: accept,authorization,content-type,x-requested-with
+  
+  # AWS S3 Configuration
+  s3:
+    aws:
+      region: ${AWS_REGION:us-east-1}
+      credentials:
+        type: default
+        access-key-id: ${AWS_ACCESS_KEY_ID:}
+        secret-access-key: ${AWS_SECRET_ACCESS_KEY:}
+    bucket: ${S3_BUCKET:ecommerce-images}
